@@ -17,26 +17,10 @@
       <v-btn class="button" @click="createPost" variant="outlined">Create payment</v-btn>
     </v-form>
   </v-sheet>
-
-
-  <!-- <form @submit.prevent> -->
-    <!-- <input class="input" v-model="payment.namespace" type="text" name="title" placeholder="Payment title"/> -->
-    <!-- <select class="input" v-model="payment.namespace" type="text" name="title" placeholder="Payment title">
-      <option value="value1">Значение 1</option>
-      <option value="value2" selected>Значение 2</option>
-      <option value="value3">Значение 3</option>
-    </select> -->
-
-    <!-- <input class="input" v-model="payment.type" type="text" name="type" placeholder="Payment type"/>
-    <input class="input textarea" v-model="payment.description" type="text" name="description" placeholder="Description"/>
-    <input class="input" v-model="payment.amount" type="text" name="amount" placeholder="Amount"/> -->
-    <!-- <button class="button" @click="createPost">Create</button>
-     -->
-  <!-- </form> -->
 </template>
 
 <script lang="ts">
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 const mockCategories = [
   'Appartment',
@@ -63,7 +47,7 @@ type PaymentView = {
   currency: string;
 }
 
-const paymentDefaultData: PaymentView = {
+const DEFAULT_PAYMENT_DATA: PaymentView = {
   id: undefined,
   category: undefined,
   subcategory: undefined,
@@ -75,16 +59,16 @@ const paymentDefaultData: PaymentView = {
 export default {
   data() {
     return {
-      payment: { ...paymentDefaultData },
+      payment: { ...DEFAULT_PAYMENT_DATA },
       categories: mockCategories.sort(),
       currencies: CURRENCIES,
     }
   },
   methods: {
     createPost() {
-      this.payment.id = uuidv4();
+      // this.payment.id = uuidv4();
       this.$emit('create', this.payment)
-      this.payment = { ...paymentDefaultData }
+      // this.payment = { ...paymentDefaultData }
     },
   }
 }
