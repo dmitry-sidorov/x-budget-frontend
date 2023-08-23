@@ -1,34 +1,83 @@
 <template>
-  <form @submit.prevent>
-    <h4>Create new post:</h4>
+  <v-sheet class="mx-auto create-form teal-lighten-3">
+    <h4 class="header">Create new payment:</h4>
+    <v-form validate-on="submit lazy" @submit.prevent>
+      <v-combobox
+        label="Payment category"
+        :items="categories"
+        variant="outlined"
+        v-model="payment.category"
+      />
+      <v-text-field class="input" label="Payment subcategory" variant="outlined"  v-model="payment.subcategory" />
+      <v-textarea label="Description" variant="outlined"  v-model="payment.description" />
+      <div class="amount">
+        <v-text-field label="Amount" variant="outlined" v-model="payment.amount" />
+        <v-combobox label="Currency" :items="currencies" variant="outlined" v-model="payment.currency" />
+      </div>
+      <v-btn class="button" @click="createPost" variant="outlined">Create payment</v-btn>
+    </v-form>
+  </v-sheet>
+
+
+  <!-- <form @submit.prevent> -->
     <!-- <input class="input" v-model="payment.namespace" type="text" name="title" placeholder="Payment title"/> -->
-    <select class="input" v-model="payment.namespace" type="text" name="title" placeholder="Payment title">
+    <!-- <select class="input" v-model="payment.namespace" type="text" name="title" placeholder="Payment title">
       <option value="value1">Значение 1</option>
       <option value="value2" selected>Значение 2</option>
       <option value="value3">Значение 3</option>
-    </select>
-    <input class="input" v-model="payment.type" type="text" name="type" placeholder="Payment type"/>
+    </select> -->
+
+    <!-- <input class="input" v-model="payment.type" type="text" name="type" placeholder="Payment type"/>
     <input class="input textarea" v-model="payment.description" type="text" name="description" placeholder="Description"/>
-    <input class="input" v-model="payment.amount" type="text" name="amount" placeholder="Amount"/>
-    <button class="button" @click="createPost">Create</button>
-  </form>
+    <input class="input" v-model="payment.amount" type="text" name="amount" placeholder="Amount"/> -->
+    <!-- <button class="button" @click="createPost">Create</button>
+     -->
+  <!-- </form> -->
 </template>
 
 <script lang="ts">
 import { v4 as uuidv4 } from 'uuid';
 
-const paymentDefaultData = {
-  id: '',
-  namespace: '',
-  type: '',
-  description: '',
+const mockCategories = [
+  'Appartment',
+  'Food',
+  'Restaurant',
+  'Fuel',
+  'Car repair',
+  'Health',
+  'Education',
+  'Pets',
+  'Charity',
+  'Other',
+  'Reserve'
+]
+
+const CURRENCIES = ['BYN', 'USD', "EU"]
+
+type PaymentView = {
+  id?: string;
+  category?: string;
+  subcategory?: string;
+  description?: string;
+  amount?: number;
+  currency: string;
+}
+
+const paymentDefaultData: PaymentView = {
+  id: undefined,
+  category: undefined,
+  subcategory: undefined,
+  description: undefined,
   amount: undefined,
+  currency: 'BYN',
 }
 
 export default {
   data() {
     return {
-      payment: { ...paymentDefaultData }
+      payment: { ...paymentDefaultData },
+      categories: mockCategories.sort(),
+      currencies: CURRENCIES,
     }
   },
   methods: {
@@ -48,12 +97,31 @@ export default {
   --main-color: rgba(0, 128, 128, 1);
 }
 
+.create-form {
+  width: 600px;
+}
+
+.header {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.input {
+  /* padding: 10px; */
+  /* max-height: 50px; */
+}
+
+.button {
+  width: 200px;
+  min-height: 60px;
+}
+
 form {
   display: flex;
   flex-direction: column;
 }
 
-.button {
+/* .button {
   align-self: flex-end;
   margin-top: 15px;
   padding: 10px 15px;
@@ -61,19 +129,24 @@ form {
   background-color: var(--main-color-light);
   border: 1px solid black;
   border-radius: 4px;
-}
+} */
 
 button:hover {
   background-color: var(--main-color);
 }
 
-.input {
+.amount {
+  display: flex;
+  gap: 16px;
+}
+
+/* .input {
   width: auto;
   border: 1px solid var(--main-color-light);
   padding: 10px 15px;
   margin-top: 15px;
   border-radius: 4px;
-}
+} */
 
 .textarea {
   height: 200%;
