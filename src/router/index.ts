@@ -14,6 +14,9 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView,
+      beforeEnter: (...params) => {
+        console.log('login before enter: ', params);
+      },
     },
     // {
     //   path: '/about',

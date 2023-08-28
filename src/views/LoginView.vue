@@ -22,13 +22,14 @@
 </template>
 
 <script lang="ts">
+import api from '../api'
 
-type LoginView = {
+export type LoginCredentials = {
   email?: string;
   password?: string;
 }
 
-const DEFAULT_CREDENTIALS: LoginView = {
+const DEFAULT_CREDENTIALS: LoginCredentials = {
   email: undefined,
   password: undefined,
 }
@@ -40,8 +41,14 @@ export default {
     }
   },
   methods: {
-    login() {
-      this.$emit('create', this.credentials)
+    async login() {
+      // this.$emit('create', this.credentials)
+      try {
+        const result = await api.login(this.credentials);
+        console.log('Login successed', result)
+      } catch (error) {
+        console.log('Login failed! ', error);
+      }
     },
   }
 }
