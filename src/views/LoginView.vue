@@ -1,7 +1,7 @@
 <template>
   <v-sheet class="mx-auto create-form teal-lighten-3">
     <h4 class="header">Login:</h4>
-    <v-form validate-on="submit lazy" @submit.prevent>
+    <v-form validate-on="submit lazy" @submit.prevent v-on:keyup.enter="login">
       <v-text-field
         class="input"
         label="Email"
@@ -22,22 +22,18 @@
 </template>
 
 <script lang="ts">
+import type { AccountView } from '@/types';
 import api from '../api'
 
 export type LoginCredentials = {
-  email?: string;
-  password?: string;
-}
-
-const DEFAULT_CREDENTIALS: LoginCredentials = {
-  email: undefined,
-  password: undefined,
+  email: AccountView['email'];
+  password: AccountView['password'];
 }
 
 export default {
   data() {
     return {
-      credentials: { ...DEFAULT_CREDENTIALS },
+      credentials: {} as AccountView,
     }
   },
   methods: {
@@ -70,11 +66,6 @@ export default {
   font-size: 24px;
 }
 
-.input {
-  /* padding: 10px; */
-  /* max-height: 50px; */
-}
-
 .button {
   width: 200px;
   min-height: 60px;
@@ -85,16 +76,6 @@ form {
   flex-direction: column;
 }
 
-/* .button {
-  align-self: flex-end;
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: none;
-  background-color: var(--main-color-light);
-  border: 1px solid black;
-  border-radius: 4px;
-} */
-
 button:hover {
   background-color: var(--main-color);
 }
@@ -103,14 +84,6 @@ button:hover {
   display: flex;
   gap: 16px;
 }
-
-/* .input {
-  width: auto;
-  border: 1px solid var(--main-color-light);
-  padding: 10px 15px;
-  margin-top: 15px;
-  border-radius: 4px;
-} */
 
 .textarea {
   height: 200%;

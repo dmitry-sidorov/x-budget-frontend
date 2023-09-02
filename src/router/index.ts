@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CreatePaymentView from '../views/CreatePaymentView.vue'
 import LoginView from '../views/LoginView.vue'
+import SignUpView from '../views/SignUpView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,11 @@ const router = createRouter({
       beforeEnter: (...params) => {
         console.log('login before enter: ', params);
       },
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignUpView,
     },
     // {
     //   path: '/about',

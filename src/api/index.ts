@@ -1,8 +1,11 @@
 import axios from 'axios'
 import type { LoginCredentials } from '../views/LoginView'
+import type { AccountView } from '@/types'
+import { AccountFromViewMapper } from './mappers'
 
-enum ApiEndpoints {
-  login = 'login',
+enum ApiAccountEndpoints {
+  createAccount = '/accounts/create',
+  signIn = '/accounts/sign_in',
 }
 
 class ApiClient {
@@ -12,8 +15,12 @@ class ApiClient {
     this.client = axios.create({ baseURL: '/api', headers: { 'Content-Type': 'application/json' } })
   }
 
-  login(credentials: LoginCredentials) {
-    this.client.post(ApiEndpoints.login, credentials)
+  async createAccount(accountView: AccountView) {
+    await this.client.post(ApiAccountEndpoints.createAccount, AccountFromViewMapper(accountView))
+  }
+
+  async login(credentials: LoginCredentials) {
+    await this.client.post(ApiAccountEndpoints.signIn, credentials)
   }
 }
 
