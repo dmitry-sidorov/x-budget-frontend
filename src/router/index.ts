@@ -2,14 +2,20 @@ import { createRouter, createWebHistory } from 'vue-router'
 import CreatePaymentView from '../views/CreatePaymentView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
+import PaymentsListView from '../views/PaymentsListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: '/payments/create',
+      name: 'payments create',
       component: CreatePaymentView,
+    },
+    {
+      path: '/payments/',
+      name: 'payments list',
+      component: PaymentsListView,
     },
     {
       path: '/login',
@@ -23,6 +29,11 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignUpView,
+    },
+    {
+      path: '/payments/',
+      name: 'payments list',
+      component: PaymentsListView,
     },
     // {
     //   path: '/about',

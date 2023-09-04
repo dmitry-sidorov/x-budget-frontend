@@ -47,28 +47,17 @@ type PaymentView = {
   currency: string;
 }
 
-const DEFAULT_PAYMENT_DATA: PaymentView = {
-  id: undefined,
-  category: undefined,
-  subcategory: undefined,
-  description: undefined,
-  amount: undefined,
-  currency: 'BYN',
-}
-
 export default {
   data() {
     return {
-      payment: { ...DEFAULT_PAYMENT_DATA },
+      payment: { id: uuidv4(), currency: 'BYN' } as PaymentView,
       categories: mockCategories.sort(),
       currencies: CURRENCIES,
     }
   },
   methods: {
     createPost() {
-      // this.payment.id = uuidv4();
       this.$emit('create', this.payment)
-      // this.payment = { ...paymentDefaultData }
     },
   }
 }
