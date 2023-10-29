@@ -30,11 +30,6 @@ const router = createRouter({
       name: 'signup',
       component: SignUpView,
     },
-    {
-      path: '/payments/',
-      name: 'payments list',
-      component: PaymentsListView,
-    },
     // {
     //   path: '/about',
     //   name: 'about',
