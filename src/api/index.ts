@@ -1,11 +1,17 @@
 import axios from 'axios'
 import type { LoginCredentials } from '../views/LoginView'
-import type { AccountView } from '@/types'
+import type { AccountViewModel } from '@/types'
 import { AccountFromViewMapper } from './mappers'
+import TokenStorage from '@/token-storage'
 
 enum ApiAccountEndpoints {
   createAccount = '/accounts/create',
   signIn = '/accounts/sign_in',
+}
+
+enum ProtectedApiAccountEndpoints {
+  getCurrentAccount = '/accounts/current',
+  getPayments = '/payments',
 }
 
 class ApiClient {
@@ -15,12 +21,24 @@ class ApiClient {
     this.client = axios.create({ baseURL: '/api', headers: { 'Content-Type': 'application/json' } })
   }
 
-  async createAccount(accountView: AccountView) {
-    await this.client.post(ApiAccountEndpoints.createAccount, AccountFromViewMapper(accountView))
+  private getHeaders() {
+    return { headers: { Authorization: TokenStorage.getAuthToken() } }
   }
 
-  async login(credentials: LoginCredentials) {
-    await this.client.post(ApiAccountEndpoints.signIn, credentials)
+  createAccount(accountViewModel: AccountViewModel) {
+    return this.client.post(ApiAccountEndpoints.createAccount, AccountFromViewMapper(accountViewModel))
+  }
+
+  login(credentials: LoginCredentials) {
+    return this.client.post(ApiAccountEndpoints.signIn, AccountFromViewMapper(credentials))
+  }
+
+  getCurrentAccount() {
+    return this.client.get(ProtectedApiAccountEndpoints.getCurrentAccount, this.getHeaders())
+  }
+
+  getPayments() {
+    return this.client.get(ProtectedApiAccountEndpoints.getPayments, this.getHeaders())
   }
 }
 

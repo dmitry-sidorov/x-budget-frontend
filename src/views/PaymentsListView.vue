@@ -31,33 +31,27 @@
 </template>
 
 <script lang="ts">
-
-const MOCK_PAYMENTS = [
-  {
-    id: '1',
-    category: 'Food',
-    subcategory: '',
-    description: 'Terra pizza',
-    amount: '25',
-    currency: 'BYN',
-  },
-  {
-    id: '2',
-    category: 'Fuel',
-    subcategory: '',
-    description: '',
-    amount: '75',
-    currency: 'BYN',
-  }
-];
+import api from '../api'
 
 export default {
   data() {
     return {
-      payments: MOCK_PAYMENTS,
+      payments: [],
     }
   },
+  created() {
+    this.fetchPayments()
+  },
   methods: {
+    async fetchPayments() {
+      try {
+        const { data } = await api.getPayments();
+        console.log('Current payments successed', data)
+        this.payments = data
+      } catch (error) {
+        console.log('Current payments failed! ', error);
+      }
+    }
   }
 }
 </script>

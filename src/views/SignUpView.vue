@@ -50,13 +50,13 @@
 </template>
 
 <script lang="ts">
-import type { AccountView } from '@/types';
+import type { AccountViewModel } from '@/types';
 import api from '../api'
 
 export default {
   data() {
     return {
-      account: {} as AccountView,
+      account: {} as AccountViewModel,
     }
   },
   methods: {

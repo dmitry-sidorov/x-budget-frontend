@@ -22,28 +22,33 @@
 </template>
 
 <script lang="ts">
-import type { AccountView } from '@/types';
+import type { AccountViewModel } from '@/types'
 import api from '../api'
+import { useStorage } from '@vueuse/core'
+import TokenStorage from '../token-storage'
+import router from '@/router'
 
 export type LoginCredentials = {
-  email: AccountView['email'];
-  password: AccountView['password'];
+  email: AccountViewModel['email']
+  password: AccountViewModel['password']
 }
 
 export default {
   data() {
     return {
-      credentials: {} as AccountView,
+      credentials: {} as AccountViewModel,
     }
   },
   methods: {
     async login() {
       // this.$emit('create', this.credentials)
       try {
-        const result = await api.login(this.credentials);
-        console.log('Login successed', result)
+        const { data: { token } } = await api.login(this.credentials);
+        console.log('Login successed', token);
+        TokenStorage.setAuthToken(token)
+        router.push('account')
       } catch (error) {
-        console.log('Login failed! ', error);
+        console.log('Login failed! ', error)
       }
     },
   }

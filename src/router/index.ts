@@ -3,18 +3,24 @@ import CreatePaymentView from '../views/CreatePaymentView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import PaymentsListView from '../views/PaymentsListView.vue'
+import AccountView from '../views/AccountView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/account',
+      name: 'account_page',
+      component: AccountView,
+    },
+    {
       path: '/payments/create',
-      name: 'payments create',
+      name: 'payments_create',
       component: CreatePaymentView,
     },
     {
       path: '/payments/',
-      name: 'payments list',
+      name: 'payments_list',
       component: PaymentsListView,
     },
     {
