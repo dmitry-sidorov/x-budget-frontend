@@ -1,5 +1,5 @@
 <template>
-  <h1 class="header">Account page</h1>
+  <h4 class="header">Account page</h4>
   <v-table class="create-form">
     <tbody>
       <tr>

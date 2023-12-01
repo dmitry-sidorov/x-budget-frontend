@@ -39,10 +39,10 @@
       />
       <v-text-field
         class="input"
-        label="Age"
+        label="Birthdate"
         type="text"
         variant="outlined"
-        v-model="account.age"
+        v-model="account.birthdate"
       />
       <v-btn class="button" @click="createAccount" variant="outlined">Login</v-btn>
     </v-form>
