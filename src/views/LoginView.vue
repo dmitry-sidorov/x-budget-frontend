@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="mx-auto create-form teal-lighten-3">
-    <h4 class="header">Login:</h4>
+    <h4 class="header">{{ $t('login') }}</h4>
     <v-form validate-on="submit lazy" @submit.prevent v-on:keyup.enter="login">
       <v-text-field
         class="input"
@@ -24,7 +24,6 @@
 <script lang="ts">
 import type { AccountViewModel } from '@/types'
 import api from '../api'
-import { useStorage } from '@vueuse/core'
 import TokenStorage from '../token-storage'
 import router from '@/router'
 
