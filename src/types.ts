@@ -7,6 +7,12 @@ export type Account = {
   birthdate: string;
 }
 
+export type Group = {
+  name: string;
+  description?: string;
+}
+
+// TODO: separate backend typing from view models 
 export type AccountViewModel = {
   email?: Account['email'];
   password?: Account['hashed_password'];
