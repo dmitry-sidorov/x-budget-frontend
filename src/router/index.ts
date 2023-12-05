@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import PaymentsListView from '../views/PaymentsListView.vue'
 import AccountView from '../views/AccountView.vue'
+import CreateNewGroupView from '../views/CreateNewGroupView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,11 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignUpView,
+    },
+    {
+      path: '/groups/new',
+      name: 'CreateNewGroup',
+      component: CreateNewGroupView,
     },
     // {
     //   path: '/about',
