@@ -1,12 +1,18 @@
 const locales = {
   en: {
-    login: 'login'
+    Login: 'Login',
+    Email: 'Email',
+    Password: 'Password',
   },
   by: {
-    login: 'увайсцi'
+    Login: 'Увайсцi',
+    Email: 'Пошта',
+    Password: 'Пароль',
   },
   ru: {
-    login: 'войти'
+    Login: 'Войти',
+    Email: 'Почта',
+    Password: 'Пароль',
   }
 }
 

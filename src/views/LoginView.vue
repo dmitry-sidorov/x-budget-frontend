@@ -1,22 +1,22 @@
 <template>
   <v-sheet class="mx-auto create-form teal-lighten-3">
-    <h4 class="header">{{ $t('login') }}</h4>
+    <h4 class="header">{{ $t('Login') }}</h4>
     <v-form validate-on="submit lazy" @submit.prevent v-on:keyup.enter="login">
       <v-text-field
         class="input"
-        label="Email"
+        :label="$t('Email')"
         type="email"
         variant="outlined"
         v-model="credentials.email"
       />
       <v-text-field
         class="input"
-        label="Password"
+        :label="$t('Password')"
         type="password"
         variant="outlined"
         v-model="credentials.password"
         />
-      <v-btn class="button" @click="login" variant="outlined">Login</v-btn>
+      <v-btn class="button" @click="login" variant="outlined">{{ $t('Login') }}</v-btn>
     </v-form>
   </v-sheet>
 </template>
