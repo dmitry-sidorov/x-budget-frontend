@@ -1,15 +1,22 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import NavigationMenu from './components/NavigationMenu.vue'
 </script>
 
 <template>
-  <RouterView />
+  <v-app app>
+    <NavigationMenu />
+    <v-main>
+      <RouterView />
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped>
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  margin-bottom: 200px;
+  position: unset;
+  /* margin-bottom: 250px; */
 }
 
 .logo {

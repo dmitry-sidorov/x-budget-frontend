@@ -44,10 +44,10 @@ export default {
       try {
         const { data: { token } } = await api.login(this.credentials);
         console.log('Login successed', token);
-        TokenStorage.setAuthToken(token)
-        router.push('account')
+        TokenStorage.setAuthToken(token);
+        router.push('account');
       } catch (error) {
-        console.log('Login failed! ', error)
+        console.log('Login failed! ', error);
       }
     },
   }

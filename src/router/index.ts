@@ -6,11 +6,22 @@ import PaymentsListView from '../views/PaymentsListView.vue'
 import AccountView from '../views/AccountView.vue'
 import CreateNewGroupView from '../views/CreateNewGroupView.vue'
 
+export enum WebRoutes {
+  account = 'account',
+  login = 'login',
+  signup = 'signup',
+  groups = 'groups',
+  bundles = 'bundles',
+  categories = 'categories',
+  invoices = 'invoices',
+  incomes = 'incomes',
+}
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/account',
+      path: `/${WebRoutes.account}`,
       name: 'account_page',
       component: AccountView,
     },
@@ -25,22 +36,34 @@ const router = createRouter({
       component: PaymentsListView,
     },
     {
-      path: '/login',
+      path: `/${WebRoutes.login}`,
       name: 'login',
       component: LoginView,
-      beforeEnter: (...params) => {
-        console.log('login before enter: ', params);
-      },
     },
     {
-      path: '/signup',
+      path: `/${WebRoutes.signup}`,
       name: 'signup',
       component: SignUpView,
     },
     {
-      path: '/groups/new',
+      path: `/${WebRoutes.groups}/new`,
       name: 'CreateNewGroup',
       component: CreateNewGroupView,
+    },
+    {
+      path: `/${WebRoutes.groups}`,
+      name: 'groups',
+      component: SignUpView, // TODO: replace mock
+    },
+    {
+      path: `/${WebRoutes.invoices}`,
+      name: 'invoices',
+      component: SignUpView, // TODO: replace mock
+    },
+    {
+      path: `/${WebRoutes.incomes}`,
+      name: 'incomes',
+      component: SignUpView, // TODO: replace mock
     },
     // {
     //   path: '/about',
@@ -52,5 +75,9 @@ const router = createRouter({
     // }
   ]
 })
+
+router.beforeEach((...params) => {
+  console.log('beforeEach router callback: ', params);
+});
 
 export default router
