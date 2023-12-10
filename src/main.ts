@@ -18,7 +18,7 @@ const vuetify = createVuetify({
 })
 
 const i18n = createI18n({
-  locale: 'by',
+  locale: 'en',
   messages,
 })
 
