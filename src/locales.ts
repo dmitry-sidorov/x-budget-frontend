@@ -10,6 +10,7 @@ const locales = {
     Groups: 'Groups',
     Invoices: 'Invoices',
     Incomes: 'Incomes',
+    Menu: 'Menu',
   },
   by: {
     Login: 'Увайсцi',
@@ -22,6 +23,7 @@ const locales = {
     Groups: 'Группы',
     Invoices: 'Счета',
     Incomes: 'Доходы',
+    Меню: 'Меню',
   },
   ru: {
     Login: 'Войти',
@@ -34,6 +36,7 @@ const locales = {
     Groups: 'Групы',
     Invoices: 'Рахунки',
     Incomes: 'Даходы',
+    Меню: 'Меню',
   }
 }
 
