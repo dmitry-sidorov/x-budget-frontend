@@ -20,10 +20,10 @@ const locales = {
     Name: 'Імя',
     Description: 'Апісанне',
     Account: 'Аккаунт',
-    Groups: 'Группы',
-    Invoices: 'Счета',
-    Incomes: 'Доходы',
-    Меню: 'Меню',
+    Groups: 'Групы',
+    Invoices: 'Рахунки',
+    Incomes: 'Даходы',
+    Menu: 'Меню',
   },
   ru: {
     Login: 'Войти',
@@ -33,10 +33,10 @@ const locales = {
     Name: 'Имя',
     Description: 'Описание',
     Account: 'Аккаунт',
-    Groups: 'Групы',
-    Invoices: 'Рахунки',
-    Incomes: 'Даходы',
-    Меню: 'Меню',
+    Groups: 'Группы',
+    Invoices: 'Счета',
+    Incomes: 'Доходы',
+    Menu: 'Меню',
   }
 }
 

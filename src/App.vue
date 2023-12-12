@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavigationMenu from './components/NavigationMenu.vue'
 </script>
 
@@ -16,7 +16,6 @@ import NavigationMenu from './components/NavigationMenu.vue'
 header {
   margin-bottom: 200px;
   position: unset;
-  /* margin-bottom: 250px; */
 }
 
 .logo {
