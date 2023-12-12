@@ -9,8 +9,17 @@ import router from './router'
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
+import localeStorage from '@/locale-storage'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { DEFAULT_LOCALE } from '@/constants'
+
+let currentLocale = localeStorage.getLocale();
+
+if (!currentLocale) {
+  currentLocale = DEFAULT_LOCALE
+  localeStorage.setLocale(currentLocale)
+}
 
 const vuetify = createVuetify({
   components,
@@ -18,7 +27,7 @@ const vuetify = createVuetify({
 })
 
 const i18n = createI18n({
-  locale: 'en',
+  locale: currentLocale,
   messages,
 })
 

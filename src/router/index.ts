@@ -4,7 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import PaymentsListView from '../views/PaymentsListView.vue'
 import AccountView from '../views/AccountView.vue'
-import CreateNewGroupView from '../views/CreateNewGroupView.vue'
+import CreateNewGroupView from '@/views/CreateNewGroupView.vue'
 
 export enum WebRoutes {
   account = 'account',
