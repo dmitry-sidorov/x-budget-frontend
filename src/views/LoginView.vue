@@ -24,7 +24,7 @@
 <script lang="ts">
 import type { AccountViewModel } from '@/types'
 import api from '../api'
-import TokenStorage from '../token-storage'
+import AuthTokenStorage from '@/auth-token-storage'
 import router from '@/router'
 
 export type LoginCredentials = {
@@ -44,7 +44,7 @@ export default {
       try {
         const { data: { token } } = await api.login(this.credentials);
         console.log('Login successed', token);
-        TokenStorage.setAuthToken(token);
+        AuthTokenStorage.setAuthToken(token);
         router.push('account');
       } catch (error) {
         console.log('Login failed! ', error);

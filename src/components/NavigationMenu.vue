@@ -3,7 +3,7 @@
     <v-toolbar-title>{{ $t('Menu') }}</v-toolbar-title>
     <v-tabs>
       <v-tab 
-        v-for="({ path, name }) in computedTabs" :key="path" :to="path"
+        v-for="({ path, name }) in tabs" :key="path" :to="path"
         class="router-link"
         :class="{'router-link__active': path === activeTabPath}"
       >
@@ -23,22 +23,34 @@
 import { useRoute } from 'vue-router'
 import { WebRoutes } from '@/router/index'
 import localeStorage from '@/locale-storage'
+import authTokenStorage from '@/auth-token-storage'
 
 export default {
   name: 'NavigationMenu',
+  data() {
+    return {
+      guestTabs: [
+        { path: `/${WebRoutes.login}`, name: this.$t('Login') },
+        { path: `/${WebRoutes.signup}`, name: this.$t('Signup') },
+      ],
+      protectedTabs: [
+        { path: `/${WebRoutes.groups}`, name: this.$t('Groups') },
+        { path: `/${WebRoutes.bundles}`, name: this.$t('Bundles') },
+        { path: `/${WebRoutes.categories}`, name: this.$t('Categories') },
+        { path: `/${WebRoutes.invoices}`, name: this.$t('Invoices') },
+        { path: `/${WebRoutes.incomes}`, name: this.$t('Incomes') },
+        { path: `/${WebRoutes.account}`, name: this.$t('Account') },
+      ]
+    }
+  },
   computed: {
     activeTabPath() {
       const route = useRoute()
   
       return route.path
     },
-    computedTabs() {
-      return [
-        { path: `/${WebRoutes.groups}`, name: this.$t('Groups') },
-        { path: `/${WebRoutes.invoices}`, name: this.$t('Invoices') },
-        { path: `/${WebRoutes.incomes}`, name: this.$t('Incomes') },
-        { path: `/${WebRoutes.account}`, name: this.$t('Account') },
-      ]
+    tabs() {
+      return authTokenStorage.isTokenValid() ? this.protectedTabs : this.guestTabs;
     }
   },
   watch: {

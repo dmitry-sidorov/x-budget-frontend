@@ -1,8 +1,8 @@
 import axios from 'axios'
-import type { LoginCredentials } from '../views/LoginView'
+import type { LoginCredentials } from '@/views/LoginView.vue'
 import type { AccountViewModel } from '@/types'
 import { AccountFromViewMapper } from './mappers'
-import TokenStorage from '@/token-storage'
+import AuthTokenStorage from '@/auth-token-storage'
 
 enum ApiAccountEndpoints {
   createAccount = '/accounts/create',
@@ -22,7 +22,9 @@ class ApiClient {
   }
 
   private getHeaders() {
-    return { headers: { Authorization: TokenStorage.getAuthToken() } }
+    const { auth_token } = AuthTokenStorage.getAuthToken() || { token: ' ' };
+
+    return { headers: { Authorization: auth_token } }
   }
 
   createAccount(accountViewModel: AccountViewModel) {
@@ -30,7 +32,7 @@ class ApiClient {
   }
 
   login(credentials: LoginCredentials) {
-    return this.client.post(ApiAccountEndpoints.signIn, AccountFromViewMapper(credentials))
+    return this.client.post(ApiAccountEndpoints.signIn, AccountFromViewMapper(credentials as AccountViewModel))
   }
 
   getCurrentAccount() {
