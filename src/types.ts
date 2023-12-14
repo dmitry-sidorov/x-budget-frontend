@@ -6,12 +6,12 @@ export type Group = {
 }
 
 export type AccountViewModel = {
-  email?: Account['email'];
-  password?: Account['hashed_password'];
-  firstName?: Account['first_name'];
-  lastName?: Account['last_name'];
-  gender?: Account['gender'];
-  birthdate?: Account['birthdate'];
+  email: Account['email'];
+  password: Account['hashed_password'];
+  firstName: Account['first_name'];
+  lastName: Account['last_name'];
+  gender: Account['gender'];
+  birthdate: Account['birthdate'];
 }
 
 export type Category = {

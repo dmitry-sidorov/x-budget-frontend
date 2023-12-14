@@ -1,4 +1,5 @@
-import type { Account, AccountViewModel } from "@/types"
+import type { AccountViewModel } from "@/types"
+import type { Account } from "@/api/types"
 
 export const AccountFromViewMapper = ({ password, firstName, lastName, ...rest }: AccountViewModel): Account => ({
   hashed_password: password,

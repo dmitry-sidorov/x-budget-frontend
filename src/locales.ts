@@ -11,6 +11,9 @@ const locales = {
     Invoices: 'Invoices',
     Incomes: 'Incomes',
     Menu: 'Menu',
+    Bundles: 'Bundles',
+    Categories: 'Categories',
+    Signup: 'Signup',
   },
   by: {
     Login: 'Увайсцi',
@@ -24,6 +27,9 @@ const locales = {
     Invoices: 'Рахунки',
     Incomes: 'Даходы',
     Menu: 'Меню',
+    Bundles: 'Пучкі',
+    Categories: 'Катэгорыі',
+    Signup: 'Зарэгістравацца',
   },
   ru: {
     Login: 'Войти',
@@ -37,6 +43,9 @@ const locales = {
     Invoices: 'Счета',
     Incomes: 'Доходы',
     Menu: 'Меню',
+    Bundles: 'Связки',
+    Categories: 'Категории',
+    Signup: 'Зарегестрироваться',
   }
 }
 

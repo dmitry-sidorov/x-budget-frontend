@@ -23,7 +23,7 @@
 <script lang="ts">
 import type { Group } from '@/types'
 import api from '../api'
-import TokenStorage from '../token-storage'
+import AuthTokenStorage from '../auth-token-storage'
 import router from '@/router'
 
 export default {

@@ -1,4 +1,4 @@
-class TokenStorage {
+class LocaleStorage {
   private storageKey = 'current_locale'
 
   getLocale() {
@@ -10,4 +10,4 @@ class TokenStorage {
   }
 }
 
-export default new TokenStorage()
+export default new LocaleStorage()
