@@ -18,6 +18,7 @@ const locales = {
     Bundles: 'Bundles',
     Categories: 'Categories',
     Signup: 'Signup',
+    CreateDefaultGroups: 'Create Default Groups',
   },
   by: {
     Login: 'Увайсцi',
@@ -38,6 +39,7 @@ const locales = {
     Bundles: 'Пучкі',
     Categories: 'Катэгорыі',
     Signup: 'Зарэгістравацца',
+    CreateDefaultGroups: 'Стварыць групы па змаўчанні',
   },
   ru: {
     Login: 'Войти',
@@ -58,6 +60,7 @@ const locales = {
     Bundles: 'Связки',
     Categories: 'Категории',
     Signup: 'Зарегестрироваться',
+    CreateDefaultGroups: 'Создать группы по умолчанию',
   }
 }
 

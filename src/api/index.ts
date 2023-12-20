@@ -11,7 +11,7 @@ enum ApiAccountEndpoints {
 
 enum ProtectedApiAccountEndpoints {
   getCurrentAccount = '/accounts/current',
-  getPayments = '/payments',
+  getGroups = '/groups',
 }
 
 class ApiClient {
@@ -39,8 +39,8 @@ class ApiClient {
     return this.client.get(ProtectedApiAccountEndpoints.getCurrentAccount, this.getHeaders())
   }
 
-  getPayments() {
-    return this.client.get(ProtectedApiAccountEndpoints.getPayments, this.getHeaders())
+  getGroups() {
+    return this.client.get(ProtectedApiAccountEndpoints.getGroups, this.getHeaders())
   }
 }
 

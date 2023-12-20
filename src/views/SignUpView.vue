@@ -62,10 +62,11 @@ export default {
   methods: {
     async createAccount() {
       try {
-        const result = await api.createAccount(this.account);
+        const result = await api.createAccount(this.account)
         console.log('Create account successed', result)
+        
       } catch (error) {
-        console.log('Create account failed! ', error);
+        console.log('Create account failed! ', error)
       }
     },
   }

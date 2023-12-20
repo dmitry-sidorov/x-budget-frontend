@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import CreatePaymentView from '../views/CreatePaymentView.vue'
-import LoginView from '../views/LoginView.vue'
-import SignUpView from '../views/SignUpView.vue'
-import PaymentsListView from '../views/PaymentsListView.vue'
-import AccountView from '../views/AccountView.vue'
+import CreatePaymentView from '@/views/CreatePaymentView.vue'
+import LoginView from '@/views/LoginView.vue'
+import SignUpView from '@/views/SignUpView.vue'
+import PaymentsListView from '@/views/PaymentsListView.vue'
+import AccountView from '@/views/AccountView.vue'
+import GroupsListView from '@/views/GroupsListView.vue'
 import CreateNewGroupView from '@/views/CreateNewGroupView.vue'
 import AuthTokenStorage from '@/auth-token-storage'
 
@@ -70,7 +71,7 @@ const router = createRouter({
     {
       path: `/${WebRoutes.groups}`,
       name: PageName.Groups,
-      component: SignUpView, // TODO: replace mock
+      component: GroupsListView,
     },
     {
       path: `/${WebRoutes.invoices}`,
