@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="mx-auto create-form teal-lighten-3">
-    <h4 class="header">{{ $t('Create New Group') }}</h4>
+    <h4 class="header">{{ $t('CreateNewGroup') }}</h4>
     <v-form validate-on="submit lazy" @submit.prevent v-on:keyup.enter="login">
       <v-text-field
         class="input"

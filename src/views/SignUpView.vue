@@ -1,50 +1,50 @@
 <template>
   <v-sheet class="mx-auto create-form teal-lighten-3">
-    <h4 class="header">Sign Up:</h4>
+    <h4 class="header">{{  $t('Signup') }}:</h4>
     <v-form validate-on="submit lazy" @submit.prevent v-on:keyup.enter="createAccount">
       <v-text-field
         class="input"
-        label="Email"
+        :label="$t('Email')"
         type="email"
         variant="outlined"
         v-model="account.email"
       />
       <v-text-field
         class="input"
-        label="Password"
+        :label="$t('Password')"
         type="password"
         variant="outlined"
         v-model="account.password"
       />
       <v-text-field
         class="input"
-        label="First name"
+        :label="$t('FirstName')"
         type="text"
         variant="outlined"
         v-model="account.firstName"
       />
       <v-text-field
         class="input"
-        label="Last name"
+        :label="$t('LastName')"
         type="text"
         variant="outlined"
         v-model="account.lastName"
       />
       <v-text-field
         class="input"
-        label="Gender"
+        :label="$t('Gender')"
         type="text"
         variant="outlined"
         v-model="account.gender"
       />
       <v-text-field
         class="input"
-        label="Birthdate"
+        :label="$t('Birthdate')"
         type="text"
         variant="outlined"
         v-model="account.birthdate"
       />
-      <v-btn class="button" @click="createAccount" variant="outlined">Login</v-btn>
+      <v-btn class="button" @click="createAccount" variant="outlined">{{ $t('Login') }}</v-btn>
     </v-form>
   </v-sheet>
 </template>
